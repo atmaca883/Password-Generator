@@ -48,8 +48,8 @@ function fillPass(range) {
 
 
 	const selectedChars = [];
-
-
+	
+	
 
 
 	if (document.getElementById("lowerCheck").checked) {
@@ -66,6 +66,11 @@ function fillPass(range) {
 	}
 	if (document.getElementById("specialCheck").checked) {
 		selectedChars.push(...specials);
+	}
+	if (document.getElementById("includeCheck").checked) {
+		let includeInputValue = document.getElementById("includeInput").value
+		const includeArray = includeInputValue.split("")
+		selectedChars.push(...includeArray);
 	}
 
 
@@ -122,9 +127,13 @@ function fillPass(range) {
 		strongSpan.textContent = "Very strong"
 		strongSpan.style.backgroundColor = "#666600"
 		strongSpan.style.color = "#fff"
-	} else {
+	} else if(range <= 50) {
 		strongSpan.textContent = "Very Powerful+"
 		strongSpan.style.backgroundColor = "#333300"
+		strongSpan.style.color = "#fff"
+	}else{
+		strongSpan.textContent = "Incredible"
+		strongSpan.style.backgroundColor = "#000"
 		strongSpan.style.color = "#fff"
 	}
 

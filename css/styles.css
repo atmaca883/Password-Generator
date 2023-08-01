@@ -190,6 +190,7 @@ input:not(:active)+#h4-container h4 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-top:15px;
 }
 
 .checkContainer input {
@@ -232,6 +233,49 @@ input:not(:active)+#h4-container h4 {
   top: 5px;
   width: 5px;
   height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.includeInputHeader{
+  font-size: 22px;
+  color: #fff;
+}
+.includeCheckmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 45px;
+  background-color: #eee;
+}
+
+.checkContainer:hover input ~ .includeCheckmark {
+  background-color: #ccc;
+}
+
+.checkContainer input:checked ~ .includeCheckmark {
+  background-color: #2196F3;
+}
+
+.includeCheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkContainer input:checked ~ .includeCheckmark:after {
+  display: block;
+}
+
+.checkContainer .includeCheckmark:after {
+  left: 16px;
+  top: 5px;
+  width: 13px;
+  height: 26px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
