@@ -1,9 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Lilita One', cursive;
   background-color: #f2f2f2;
 }
-
-
 
 h1 {
   text-align: center;
@@ -14,9 +12,11 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Lilita One', cursive;
   text-align: center;
+  background-color: #055b65;
 }
+
 html input[type=range] {
   outline: 0;
   border: 0;
@@ -26,53 +26,68 @@ html input[type=range] {
   margin: 24px 0 16px;
   transition: box-shadow 0.2s ease-in-out;
 }
-input[type=text]{
+.container{
+  background-color: #055b65;
+}
+input[type=text] {
   background-color: fff;
   border-radius: 50px;
-  border:2px solid wheat;
+  border: 2px solid wheat;
   height: 80px;
   width: 100%;
   padding: 25px;
 }
-.strongSpan{
+
+.strongSpan {
   background: aqua;
-    padding: 21px;
-    width: 100%;
-    display: block;
-    border-radius: 40px;
-}
-.generateButton{
-  align-self: center;
-    background-color: #00ff28;
-    width: 100%;
-    height: 100%;
-    padding: 25px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-.generateButton:hover{
-  background-color:#fff;
-  border:1px solid #00ff28;
-  color:#000;
-  transition: all .2s ease;
+  padding: 21px;
+  width: 100%;
+  font-size: 22px;
+  display: block;
+  border-radius: 40px;
+  border: 4px solid #007281;
 }
 
-.copyButton{
-  background-color: bisque;
-  display: block;
-  border-radius: 50px;
+.generateButton {
+  align-self: center;
+  background-color: #008214;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 25px;
+  border: 1px solid white;
+  border-radius: 50px;
+  color: white;
   cursor: pointer;
   transition: all .2s ease;
 }
-.copyButton:hover{
+
+.generateButton:hover {
   background-color: #fff;
-  border:1px solid bisque;
+  border: 1px solid #00ff28;
+  color: #000;
+  transition: all .2s ease;
 }
-.copySuccesButton{
+
+.copyButton {
+  background-color: #b3008f;
+    display: block;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: all .2s ease;
+}
+
+.copyButton:hover {
+  background-color: #fff;
+  border: 1px solid #b3008f;
+  color:#b3008f;
+}
+
+.copySuccesButton {
   background-color: green;
   color: #fff;
   display: block;
@@ -83,13 +98,15 @@ input[type=text]{
   cursor: pointer;
   transition: all .2s ease;
 }
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   html input[type=range] {
     overflow: hidden;
-    height: 15px;
+    height: 45px;
     -webkit-appearance: none;
     background-color: #ddd;
   }
+
   html input[type=range]::-webkit-slider-runnable-track {
     height: 40px;
     -webkit-appearance: none;
@@ -97,6 +114,7 @@ input[type=text]{
     -webkit-transition: box-shadow 0.2s ease-in-out;
     transition: box-shadow 0.2s ease-in-out;
   }
+
   html input[type=range]::-webkit-slider-thumb {
     width: 40px;
     -webkit-appearance: none;
@@ -109,27 +127,114 @@ input[type=text]{
     transition: box-shadow 0.2s ease-in-out;
     position: relative;
   }
+
   html input[type=range]:active::-webkit-slider-thumb {
     background: #fff;
     box-shadow: -340px 0 0 320px #01c912, inset 0 0 0 3px #1597ff;
   }
 }
+
 html input[type=range]::-moz-range-progress {
   background-color: #43e5f7;
 }
+
 html input[type=range]::-moz-range-track {
   background-color: #9a905d;
 }
+
 html input[type=range]::-ms-fill-lower {
   background-color: #43e5f7;
 }
+
 html input[type=range]::-ms-fill-upper {
   background-color: #9a905d;
 }
 
 
-input:not(:active) + #h4-container h4 {
+input:not(:active)+#h4-container h4 {
   opacity: 0;
   margin-top: -50px;
   pointer-events: none;
+}
+
+.alert {
+  color: #fff;
+  font-size: 22px;
+  border: 4px solid #550000;
+  background-color: #b10000 !important;
+  padding: 21px;
+  width: 100%;
+  display: block;
+  border-radius: 40px;
+}
+
+.passLength{
+  color:white;
+  font-size: 22px;
+}
+.col label{
+  font-size :22px;
+  color:white;
+  margin:15px;
+}
+
+
+.checkContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkContainer input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkContainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

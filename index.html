@@ -3,23 +3,29 @@
 
 <head>
     <title>Password Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Mochiy+Pop+One&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
-   
+
 
     <div class="container">
-        <div class="row" style="width:800px;margin-bottom:40px;">
+        <div class="row" style="width:100%;margin-bottom:40px;">
             <div class="col-sm-12">
-                <span class="strongSpan"id="strongSpan">
+                <span class="strongSpan" id="strongSpan">
                     Password Strength
                 </span>
             </div>
-            
+
         </div>
+
         <div class="row" style="width:800px">
             <div class="col-sm-8">
                 <input type="text" id="passDisplay">
@@ -29,42 +35,61 @@
                     Generate
                 </span>
             </div>
-            <div class="col-sm-2"style="align-self: center;">
+            <div class="col-sm-2" style="align-self: center;">
                 <span class="copyButton" id="copyButton">
                     Copy
                 </span>
             </div>
         </div>
-        <div class="row" style="width:700px">
-            <div class="col-sm-4"style="align-self:center">
-                <span >Password Length : </span> <span id="rangevalue"></span> 
+        <div class="row" style="width:700px;margin-top:50px">
+            <div class="col-sm-4" style="align-self:center">
+                <span class="passLength">Password Length : </span> <span id="rangevalue" class="passLength"></span>
             </div>
             <div class="col-sm-8">
-                <input class="slider" id="range" min="0" max="100" name="slider" oninput="showVal(this.value)" onchange="showVal(this.value)"type="range" />
+                <input class="slider" id="range" min="0" max="100" name="slider" oninput="showVal(this.value)"
+                    onchange="showVal(this.value)" type="range" />
             </div>
         </div>
         <div class="row">
             <div class="col">
-               <input type="checkbox" name="upperCheck" id="upperCheck"><label for="">ABC</label> 
+                <label class="checkContainer">ABC
+                    <input id="upperCheck" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
             </div>
             <div class="col">
-                <input type="checkbox" name="lowerCheck" id="lowerCheck"><label for="">abc</label>
+                <label class="checkContainer">abc
+                    <input type="checkbox" id="lowerCheck">
+                    <span class="checkmark"></span>
+                </label>
             </div>
             <div class="col">
-                <input type="checkbox" name="numberCheck" id="numberCheck"> <label for="">123</label> 
+                <label class="checkContainer">123
+                    <input id="numberCheck" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
             </div>
             <div class="col">
-                <input type="checkbox" name="symbolCheck" id="symbolCheck"><label for="">!#$</label>
+                <label class="checkContainer">!#$
+                    <input type="checkbox" id="symbolCheck">
+                    <span class="checkmark"></span>
+                </label>
             </div>
             <div class="col">
-                <input type="checkbox" name="specialCheck" id="specialCheck"> <label for="">{/(]</label>
+                <label class="checkContainer">{/(]
+                    <input type="checkbox" id="specialCheck">
+                    <span class="checkmark"></span>
+                </label>
             </div>
         </div>
-       
-        
+
+
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 

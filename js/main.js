@@ -1,52 +1,3 @@
-// // Get DOM elements
-// const passwordInput = document.getElementById("password");
-// const generateBtn = document.getElementById("generate-btn");
-// const copyBtn = document.getElementById("copy-btn");
-
-
-// // Generate random password
-// function generatePassword() {
-//     const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
-//     const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//     const numbers = "0123456789";
-//     const symbols = "!@#$%^&*_-+=";
-//     const length = 12; // Change this to adjust the password length
-//     let password = "";
-
-//     const allCharacters = lowercaseLetters + uppercaseLetters + numbers + symbols;
-
-//     for (let i = 0; i < length; i++) {
-//         const randomIndex = Math.floor(Math.random() * allCharacters.length);
-//         password += allCharacters[randomIndex];
-//     }
-
-//     return password;
-// }
-
-// // Generate password and update the input field
-// function updatePassword() {
-//     const password = generatePassword();
-//     passwordInput.value = password;
-// }
-
-// // Copy password to clipboard
-// function copyPassword() {
-//     passwordInput.select();
-//     passwordInput.setSelectionRange(0, 99999); // For mobile devices
-
-//     document.execCommand("copy");
-//     alert("Password copied to clipboard!");
-// }
-
-// // Add event listeners to the generate and copy buttons
-// generateBtn.addEventListener("click", updatePassword);
-// copyBtn.addEventListener("click", copyPassword);
-
-// // Generate initial password on page load
-// updatePassword();
-
-// --------------------------------------------------------
-
 $(function () {
 	var rangePercent = $('[type="range"]').val();
 	$('[type="range"]').on("change input", function () {
@@ -70,9 +21,12 @@ function showVal(val) {
 	document.getElementById("rangevalue").textContent = val
 }
 
+
+
 function fillPass(range) {
 
 	let combinedArray = []
+
 
 	const lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "p", "o", "r", "s", "t", "u", "v", "y", "z", "w"];
 	const upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "P", "O", "R", "S", "T", "U", "V", "Y", "Z", "W"];
@@ -82,14 +36,22 @@ function fillPass(range) {
 
 
 	function shuffleArray(array) {
+
+
 		for (let i = array.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[array[i], array[j]] = [array[j], array[i]];
 		}
+
+
 	}
 
 
 	const selectedChars = [];
+
+
+
+
 	if (document.getElementById("lowerCheck").checked) {
 		selectedChars.push(...lowerChar);
 	}
@@ -116,17 +78,22 @@ function fillPass(range) {
 		password += selectedChars[0]
 	}
 
+	if (selectedChars.length === 0) {
+		document.getElementById("strongSpan").classList.remove("strongSpan")
+		document.getElementById("strongSpan").classList.add("alert")
+		document.getElementById("strongSpan").textContent = "You need to select least one option"
+		return
+	} else {
+		document.getElementById("strongSpan").classList.remove("alert")
+		document.getElementById("strongSpan").classList.add("strongSpan")
+	}
+
 	document.getElementById("passDisplay").value = password
 
 	let strongSpan = document.getElementById("strongSpan")
 
-	let passwordStrength;
-	const length = selectedChars.length;
+	
 
-	if (selectedChars.length === 0) {
-		alert("Lütfen en az bir karakter türü seçin.")
-
-	}
 	if (range === 1) {
 		strongSpan.textContent = "Weak"
 		strongSpan.style.backgroundColor = "#FFFF99"
